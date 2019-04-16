@@ -78,13 +78,48 @@
 
 // 11. ** unsubscribe: to end observables that do not terminate on their own such as interval
 
-const interval = Rx.Observable.interval(500)
-const subscription = interval.subscribe(x => print(x))
+// const interval = Rx.Observable.interval(1000)
+// const subscription = interval.subscribe(x => print(x))
 
-const timer = Rx.Observable.timer(3000)
-timer.subscribe(() => {
-    subscription.unsubscribe()
-})
+// const timer = Rx.Observable.timer(3000)
+// timer.subscribe(() => {
+//     subscription.unsubscribe()
+// })
+// same as above
+// setTimeout(() => {
+//     subscription.unsubscribe()
+// }, 5000);
+
+
+// vectoried operations
+// 12. ** map:
+
+// const num = Rx.Observable.of(1, 2, 3, 4, 5, 6)
+// num.map(n => n * n).subscribe(newn => print(newn))
+
+// also usable for apicalls
+// const jsonString = '{"name": "jude", "age": 40, "job": "IT"}'
+// const apiCall = Rx.Observable.of(jsonString);
+
+// apiCall.map(json => JSON.parse(json)).subscribe(val => {
+//         print(val.name)
+//         print(val.age)
+//     })
+
+
+// 13. filter:
+// const num = Rx.Observable.of(2, 3, 4, 5, 6, 7, 8)
+
+// num.filter(n => n % 2 == 0).subscribe(v => print(v))
+
+// 14. do: n.b map only returns values
+// const names = Rx.Observable.of("Simon", "Lily", "mama", "daddy")
+// names
+//     .do(n => print(n))
+//     .map(n => (n.toUpperCase()))
+//     .do(n => print(n))
+//     .subscribe()
+
 
 
 function print(val) {
