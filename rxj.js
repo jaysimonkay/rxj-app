@@ -72,7 +72,19 @@
 
 // hot.connect()
 
+// 10. ** finally: using finally to give feedback when done
+// timer = Rx.Observable.timer(5000)
+// timer.finally(() => print('All Done ')).subscribe()
 
+// 11. ** unsubscribe: to end observables that do not terminate on their own such as interval
+
+const interval = Rx.Observable.interval(500)
+const subscription = interval.subscribe(x => print(x))
+
+const timer = Rx.Observable.timer(3000)
+timer.subscribe(() => {
+    subscription.unsubscribe()
+})
 
 
 function print(val) {
