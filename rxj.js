@@ -49,13 +49,28 @@
 // })
 
 // 8. ** hot: makes both randomsied values same unlike above
-var randomised = Math.random()
-const hot = Rx.Observable.create(observer => {
-    observer.next(randomised)
-})
+// var randomised = Math.random()
+// const hot = Rx.Observable.create(observer => {
+//     observer.next(randomised)
+// })
 
-hot.subscribe(val => print(val))
-hot.subscribe(val => print(val))
+// hot.subscribe(val => print(val))
+// hot.subscribe(val => print(val))
+
+// 9. ** hot but not decoupled using publish and connect
+// const cold = Rx.Observable.create(observer => {
+//     observer.next(Math.random())
+// })
+
+// const hot = cold.publish()
+// hot.subscribe(val => {
+//     print(`Value a: ${val}`)
+// })
+// hot.subscribe(val => {
+//     print(`Value b: ${val}`)
+// })
+
+// hot.connect()
 
 
 
